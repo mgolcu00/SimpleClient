@@ -12,6 +12,7 @@ public class SimpleInterceptor implements Interceptor {
     @Override
     public Response intercept(@NotNull Chain chain) throws IOException {
         Request request = chain.request();
+        request.header("intercepted");
         return chain.proceed(request);
     }
 }
