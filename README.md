@@ -43,4 +43,30 @@ public class Main {
 }
 `````
 
+## GET
+```JAVA 
+String url = "https://jsonplaceholder.typicode.com/posts/1";
+client.get(url, String.class, response -> {
+    if (response.isSuccessful()) {
+        System.out.println(response.getBody());
+    } else {
+        System.out.println("Hata: " + response.getError());
+    }
+});
+`````
+
+## POST
+```JAVA
+String url = "https://jsonplaceholder.typicode.com/posts";
+Foo request = new Foo("foo",100);
+
+client.post(url, request, Foo.class, response -> {
+    if (response.isSuccessful()) {
+        System.out.println(response.getBody());
+    } else {
+        System.out.println("Hata: " + response.getError());
+    }
+});
+`````
+
 
