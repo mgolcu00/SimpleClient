@@ -45,7 +45,7 @@ jobs:
         run: mvn clean compile
 
       - name: Publish package
-        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+        run: mvn deploy
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
