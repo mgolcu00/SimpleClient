@@ -6,7 +6,7 @@
 
     <groupId>io.github.mgolcu00</groupId>
     <artifactId>simpleclient</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 
     <properties>
         <maven.compiler.source>19</maven.compiler.source>
