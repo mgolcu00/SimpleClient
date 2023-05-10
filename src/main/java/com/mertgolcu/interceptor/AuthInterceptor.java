@@ -1,6 +1,5 @@
 package com.mertgolcu.interceptor;
 
-import com.mertgolcu.util.Constants;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -34,6 +33,9 @@ public class AuthInterceptor implements Interceptor {
         this.authKey = authKey;
     }
 
+    public AuthInterceptor(String authKey) {
+        this.authKey = authKey;
+    }
 
     @NotNull
     @Override

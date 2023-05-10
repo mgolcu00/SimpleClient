@@ -1,6 +1,7 @@
 package com.mertgolcu;
 
 import com.mertgolcu.exception.ResponseException;
+import com.mertgolcu.interceptor.AuthInterceptor;
 import com.mertgolcu.statement.ISimpleClientStatement;
 import com.mertgolcu.util.ClientMediaType;
 import com.mertgolcu.util.ResponseCallback;
@@ -47,6 +48,13 @@ public class SimpleClient implements ISimpleClientStatement {
     public SimpleClient() {
         client = createOkHttpClient();
         moshi = createMoshi();
+    }
+
+    public static synchronized SimpleClient getInstanceWithAuthInterceptor(@Nullable String authKey) {
+        String ak = authKey == null || authKey.isEmpty() ? "Authorization" : authKey;
+        if (instance == null)
+            instance = new SimpleClient(new AuthInterceptor(ak));
+        return instance;
     }
 
     public static synchronized SimpleClient getInstance() {
